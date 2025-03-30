@@ -1,0 +1,17 @@
+.operation-details {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.amount, .category, .name, .description, .date {
+  margin-bottom: 5px;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
