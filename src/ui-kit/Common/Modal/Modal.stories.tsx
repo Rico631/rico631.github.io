@@ -6,8 +6,8 @@ const meta: Meta<typeof Modal> = {
   title: 'Common/Modal',
   component: Modal,
   argTypes: {
-    canClose: { action: 'canClose' },
     onClose: { action: 'onClose' },
+    isOpen: { control: 'boolean', defaultValue: true },
   },
 };
 
@@ -16,7 +16,7 @@ export default meta;
 export const Default: StoryObj<typeof Modal> = {
   render: (args: ModalProps) => <Modal {...args} />,
   args: {
-    canClose: () => true,
     children: <p>This is a modal content</p>,
+    isOpen: true,
   },
 };

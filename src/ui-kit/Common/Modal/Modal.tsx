@@ -1,29 +1,20 @@
-import React, { useState } from "react";
+import React, { FC, ReactNode } from "react";
 import "./Modal.css";
 
 export interface ModalProps {
+  isOpen: boolean;
   onClose: () => void;
-  canClose?: () => boolean;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose, canClose, children }) => {
-  const [visible, setVisible] = useState(true);
+const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
-  const handleClose = () => {
-    if (canClose && !canClose()) {
-      return;
-    }
-    setVisible(false);
-    onClose();
-  };
-
-  if (!visible) return null;
+  if (!isOpen) return null;
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <button className="close-button" onClick={handleClose}>
+        <button className="close-button" onClick={onClose}>
           X
         </button>
         {children}
